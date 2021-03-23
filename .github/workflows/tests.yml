@@ -12,4 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: zingimmick/github-action-get-tag@dev-master
+      - id: get-current-tag
+        uses: zingimmick/github-action-get-tag@tests
+
+      - name: Print tag
+        run: echo ${{ steps.get-current-tag.outputs.tag }}
