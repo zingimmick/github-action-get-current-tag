@@ -1,19 +1,16 @@
 name: Tests
 
-# Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-
+    tags:
+      - '*'
 jobs:
   tests:
     runs-on: ubuntu-latest
 
     steps:
       - id: get-current-tag
-        uses: zingimmick/github-action-get-tag@tests
+        uses: zingimmick/github-action-get-tag@main
 
       - name: Print tag
         run: echo ${{ steps.get-current-tag.outputs.tag }}
