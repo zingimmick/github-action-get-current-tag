@@ -1,4 +1,4 @@
-name: Get tag
+name: Get Current Tag
 author: zingimmick
 description: Get current tag name from GITHUB_REF environment variable
 branding:
