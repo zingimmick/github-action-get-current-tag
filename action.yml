@@ -11,6 +11,14 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - name: Check ref
+      shell: bash
+      run: |
+        if ![[ "${{ github.ref }}" == "refs/tags/"* ]]; then
+          echo "Not a tag ref ${{ github.ref }}"
+          exit 1
+        fi
+
     - name: Determine tag
       id: get-tag
       shell: bash
@@ -20,3 +28,4 @@ runs:
         # Strip "v" prefix from tag name
         [[ "${{ github.ref }}" == "refs/tags/"* ]] && TAG=$(echo $TAG | sed -e 's/^v//')
         echo "::set-output name=tag::$TAG"
+
