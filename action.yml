@@ -1,4 +1,5 @@
 name: Get tag
+author: zingimmick
 description: Get current tag name from GITHUB_REF environment variable
 branding:
   icon: tag
