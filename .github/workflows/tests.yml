@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: zingimmick/github-action-get-tag@dev-add-a-composite-run-steps-action
+      - uses: zingimmick/github-action-get-tag@dev-master
