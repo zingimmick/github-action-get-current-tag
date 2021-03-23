@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - id: get-current-tag
-        uses: zingimmick/github-action-get-tag@main
+        uses: zingimmick/github-action-get-current-tag@main
 
       - name: Print tag
         run: echo "${{ steps.get-current-tag.outputs.tag }}"
