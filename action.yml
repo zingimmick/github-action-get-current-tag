@@ -1,0 +1,22 @@
+name: Get tag
+description: Get current tag name from GITHUB_REF environment variable
+branding:
+  icon: tag
+  color: blue
+
+outputs:
+  tag:
+    description: Tag name
+
+runs:
+  using: "composite"
+  steps:
+    - name: Determine tag
+      id: get-tag
+      shell: bash
+      run: |
+        # Strip git ref prefix from version
+        TAG=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+        # Strip "v" prefix from tag name
+        [[ "${{ github.ref }}" == "refs/tags/"* ]] && TAG=$(echo $TAG | sed -e 's/^v//')
+        echo "::set-output name=tag::$TAG"
