@@ -1,5 +1,4 @@
-name: Get Current Tag
-author: zingimmick
+name: Get tag
 description: Get current tag name from GITHUB_REF environment variable
 branding:
   icon: tag
@@ -23,5 +22,8 @@ runs:
     - name: Determine tag
       id: get-tag
       shell: bash
-      run: echo "::set-output name=tag::$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')"
+      run: |
+        # Strip git ref prefix from version
+        TAG=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+        echo "::set-output name=tag::$TAG"
 
