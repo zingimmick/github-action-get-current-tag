@@ -1,6 +1,7 @@
 name: Get Current Tag
 author: zingimmick
-description: Get current tag name from GITHUB_REF environment variable
+description: Get current tag name from `github.ref` environment variable
+
 branding:
   icon: tag
   color: blue
