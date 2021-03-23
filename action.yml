@@ -24,9 +24,5 @@ runs:
     - name: Determine tag
       id: get-tag
       shell: bash
-      run: |
-        # Strip git ref prefix from version
-        TAG=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-        echo "$TAG"
-        echo "::set-output name=tag::$TAG"
+      run: echo "::set-output name=tag::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
 
